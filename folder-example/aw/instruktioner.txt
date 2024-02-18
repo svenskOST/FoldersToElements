@@ -1,0 +1,11 @@
+Följ instruktionerna nedan för att publicera ditt projekt.
+
+1. Skapa en mapp för ditt projekt inuti rätt årskurs-mapp.
+
+2. Kopiera "settings.json" filen till din projektmapp och ändra sedan dess innehåll.
+   OBS! Var noga att du kopierar filen, inte flyttar den.
+
+3. Om du har en ikon du vill använda för projektet laddar du upp den i din projektmapp.
+   Döp filen till "icon.png".
+
+4. Se till att ditt projekt har en "index.html" fil direkt i projektmappen. Resten är upp till dig.

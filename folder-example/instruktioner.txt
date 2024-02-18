@@ -1,0 +1,2 @@
+Mappstrukturen på sidan bör följa samma struktur som visas i denna mapp, där varje programmapp innehåller
+mappar för respektive årskurser och filerna "instruktioner.txt", "settings.json" och "standard-icon.png".

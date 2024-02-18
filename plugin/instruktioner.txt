@@ -1,0 +1,22 @@
+Följ instruktionerna nedan för att aktivera och använda "Folders to Elements" på din WordPress sida.
+
+
+AKTIVERING
+
+1. Gå till roten av din WordPress-installation.
+
+2. Navigera till "wp-content" och sedan "plugins". Här laddar du upp "folders-to-elements" mappen.
+
+3. I WordPress admin-gränssnitt, gå till "Plugins" och aktivera "Folders to Elements".
+
+
+ANVÄNDNING
+
+1. I WordPress admin-gränssnitt, gå till "Pages" och redigera den sida du vill tillämpa tillägget på.
+
+2. Välj vart du vill generera elementen och infoga "Shortcode" blocket.
+
+3. I "Shortcode" blocket skriver du "[foldersToElements program="aw" year="3"]" 
+   där du byter värdet för "program" och "year" till önskat program och årskurs för projekten. 
+   Program är antingen förkortningen av ett program eller "prova" och i sådant fall skriver du 0 på "year".
+
