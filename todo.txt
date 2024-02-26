@@ -2,15 +2,13 @@ KLART Migrera projekt.
 
 KLART Fixa parametrar för pluginet för att ändra program och årskurs.
 
+KLART "altLink" parameter som när tom inte gör något men när fylld overwritear $link (för projekt som länkar till annat än en webbsida i domänen).
+
 - Fixa lite med spacing mellan kolumner.
 
 - Fixa så att det är max 3 per rad i kolumngrejerna.
 
 - elevsidor.kreativlink.se sidan borde vara den som nu är kreativlink.se/home/elevsidor.
-
-- Olika icon filtyper (svg, png, jpeg osv.).
-
-- "altLink" parameter som när tom inte gör något men när fylld overwritear $link (för projekt som länkar till annat än en webbsida i domänen).
 
 - Anpassa bättre för prova-på.
 

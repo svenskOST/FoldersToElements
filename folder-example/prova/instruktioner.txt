@@ -2,10 +2,14 @@ Följ instruktionerna nedan för att publicera ditt projekt.
 
 1. Skapa en mapp för ditt projekt här.
 
-2. Kopiera "settings.json" filen till din projektmapp och ändra sedan dess innehåll.
+2. Kopiera "settings.json" filen till din projektmapp och ändra sedan dess innehåll för "author", "title" och "description".
    OBS! Var noga att du kopierar filen, inte flyttar den.
 
 3. Om du har en ikon du vill använda för projektet laddar du upp den i din projektmapp.
-   Döp filen till "icon.png".
+   Döp filen till "icon.png" oavsett vad det är för filtyp.
 
-4. Se till att ditt projekt har en "index.html" fil direkt i projektmappen. Resten är upp till dig.
+Om ditt projekt är en egen webbsida som du vill publicera här:
+- Ladda upp dina filer i projektmappen och se till att det finns en "index.html" fil direkt mappen.
+
+Om ditt projekt är en extern webbsida, eller en enda fil:
+- Ändra "altLink" i "settings.json" till rätt länk.

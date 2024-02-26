@@ -34,19 +34,25 @@ function foldersToElements($atts)
 
    foreach ($folders as $folder) {
       $folderName = basename($folder);
-      $link = "$pageRelativeBase/arskurs-$year/$folderName";
+      $link = null;
       $icon = null;
+
+      $data = json_decode(file_get_contents("$folder/settings.json"), true);
+      $author = $data['author'];
+      $title = $data['title'];
+      $description = $data['description'];
+
+      if ($data['altLink'] != null) {
+         $link = $data['altLink'];
+      } else {
+         $link = "$pageRelativeBase/arskurs-$year/$folderName";
+      }
 
       if (file_exists("$folder/icon.png")) {
          $icon = "$pageRelativeBase/arskurs-$year/$folderName/icon.png";
       } else {
          $icon = "$pageRelativeBase/standard-icon.png";
       }
-
-      $data = json_decode(file_get_contents("$folder/settings.json"), true);
-      $author = $data['author'];
-      $title = $data['title'];
-      $description = $data['description'];
 
       $elements .= "
          <div class='wp-block-column is-layout-flow wp-block-column-is-layout-flow'>
