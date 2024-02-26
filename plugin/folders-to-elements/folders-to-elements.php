@@ -40,7 +40,7 @@ function foldersToElements($atts)
       if (file_exists("$folder/icon.png")) {
          $icon = "$pageRelativeBase/arskurs-$year/$folderName/icon.png";
       } else {
-         $icon = "$pageRelativeBase/standard-icon";
+         $icon = "$pageRelativeBase/standard-icon.png";
       }
 
       $data = json_decode(file_get_contents("$folder/settings.json"), true);
