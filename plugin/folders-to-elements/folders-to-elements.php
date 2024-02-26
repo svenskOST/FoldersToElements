@@ -25,7 +25,7 @@ function foldersToElements($atts)
 
    // Base to find folders relative to this plugin.
    $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
-   $folders = array_filter(glob($scriptRelativeBase . '/*', GLOB_ONLYDIR), 'is_dir');
+   $folders = array_filter(glob("$scriptRelativeBase/*", GLOB_ONLYDIR), 'is_dir');
 
    // Base for URLs relative to the page document.
    $pageRelativeBase = "../$program";
