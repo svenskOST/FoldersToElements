@@ -1,10 +1,6 @@
 KLART Migrera projekt.
 
-- Skapa mappar för alla program och årskurser.
-
-- Fixa base för mina react projekt.
-
-- Fixa parametrar för pluginet för att ändra program och årskurs.
+KLART Fixa parametrar för pluginet för att ändra program och årskurs.
 
 - Fixa lite med spacing mellan kolumner.
 
@@ -12,6 +8,10 @@ KLART Migrera projekt.
 
 - elevsidor.kreativlink.se sidan borde vara den som nu är kreativlink.se/home/elevsidor.
 
-- "altLink" parameter som när tom inte gör något men när fylld overwritear $link.
+- Olika icon filtyper (svg, png, jpeg osv.).
+
+- "altLink" parameter som när tom inte gör något men när fylld overwritear $link (för projekt som länkar till annat än en webbsida i domänen).
 
 - Anpassa bättre för prova-på.
+
+- Fixa base för mina react projekt.

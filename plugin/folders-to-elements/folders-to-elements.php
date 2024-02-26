@@ -9,31 +9,41 @@ Author: Alexander Marini
 // Uncomment line below for testing in a different environment.
 // header('Access-Control-Allow-Origin: *');
 
-function foldersToElements()
+function foldersToElements($atts)
 {
-   $pluginDir = plugin_dir_path(__FILE__);
+   $atts = shortcode_atts(
+      array(
+         'program' => 'aw',
+         'year' => '3'
+      ),
+      $atts,
+      'foldersToElements'
+   );
+
+   $program = $atts['program'];
+   $year = $atts['year'];
 
    // Base to find folders relative to this plugin.
-   $scriptRelativeBase = $pluginDir . "../../../aw/arskurs-3";
+   $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
    $folders = array_filter(glob($scriptRelativeBase . '/*', GLOB_ONLYDIR), 'is_dir');
 
    // Base for URLs relative to the page document.
-   $pageRelativeBase = "../aw";
+   $pageRelativeBase = "../$program";
 
    $elements = "<div class='wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex'>";
 
    foreach ($folders as $folder) {
       $folderName = basename($folder);
-      $link = $pageRelativeBase . '/arskurs-3/' . $folderName;
+      $link = "$pageRelativeBase/arskurs-$year/$folderName";
       $icon = null;
 
-      if (file_exists($folder . '/icon.png')) {
-         $icon = $pageRelativeBase . '/arskurs-3/' . $folderName . '/icon.png';
+      if (file_exists("$folder/icon.png")) {
+         $icon = "$pageRelativeBase/arskurs-$year/$folderName/icon.png";
       } else {
-         $icon = $pageRelativeBase . '/standard-icon.png';
+         $icon = "$pageRelativeBase/standard-icon";
       }
 
-      $data = json_decode(file_get_contents($folder . '/settings.json'), true);
+      $data = json_decode(file_get_contents("$folder/settings.json"), true);
       $author = $data['author'];
       $title = $data['title'];
       $description = $data['description'];
