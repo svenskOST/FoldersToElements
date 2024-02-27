@@ -15,8 +15,10 @@ ANVÄNDNING
 1. I WordPress admin-gränssnitt, gå till "Pages" och redigera den sida du vill tillämpa tillägget på.
 
 2. Välj vart du vill generera elementen och infoga "Shortcode" blocket.
+   Alternativt kan du snabbt utgå från mallen genom att gå till "Block inserter -> Patterns -> My patterns -> Programsida".
 
-3. I "Shortcode" blocket skriver du "[foldersToElements program="aw" year="3"]" 
-   där du byter värdet för "program" och "year" till önskat program och årskurs för projekten. 
-   Program är antingen förkortningen av ett program eller "prova" och i sådant fall skriver du 0 på "year".
+3. I "Shortcode" blocket skriver du "[foldersToElements program="ettProgram" year="enSiffra"]" 
+   Byt sedan värdet för "program" och "year" till önskat program och årskurs för projekten. 
+   Program är förkortningen av önskat program t.ex. "aw" eller "gd".
+   För prova-på bör program vara "prova" och parametern för year kan tas bort.
 
