@@ -49,7 +49,7 @@ function foldersToElements($atts)
             if ($counter != 1) {
                $elements .= "</div>";
             }
-            $elements .= "<div class='wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex'>";
+            $elements .= "<div class='wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex' style='margin: 5vh 5vw 0 5vw'>";
          }
 
          $folderName = basename($folder);
@@ -74,29 +74,20 @@ function foldersToElements($atts)
          }
 
          $elements .= "
-            <div class='wp-block-column is-layout-flow wp-block-column-is-layout-flow'>
-               <div style='height: 45px' aria-hidden='true' class='wp-block-spacer'></div>
-               <figure class='wp-block-image aligncenter size-full is-resized is-style-rounded'>
-                  <a href='$link' target='_blank' style='text-decoration: none'>
-                     <img src='$icon' class='wp-image-82' style='width: 275px; height: auto'/>
-                  </a>
+            <a href='$link' target='_blank' class='hover-animation wp-block-column is-layout-flow wp-block-column-is-layout-flow' style='background-color: rgba(0, 0, 0, 0.5); border-radius: 30px; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 50px 20px; margin: 2vh 1vw; text-decoration: none; transition: scale 0.3s'>
+               <figure class='wp-block-image aligncenter size-full is-resized is-style-rounded' style='aspect-ratio: 1/1'>
+                  <img src='$icon' class='wp-image-82' style='width: 275px; height: auto'/>
                </figure>
                <h3 class='wp-block-heading has-text-align-center'>
-                  <a href='$link' target='_blank' style='text-decoration: none'>
-                     $title
-                  </a>
+                  $title
                </h3>
                <h4 class='wp-block-heading has-text-align-center' style='margin-top: 5px;'>
-                  <a href='$link' target='_blank' style='text-decoration: none'>
-                     $author
-                  </a>
+                  $author
                </h4>
                <p>
-                  <a href='$link' target='_blank' style='text-decoration: none'>
-                     $description
-                  </a>
+                  $description
                </p>
-            </div>
+            </a>
          ";
       }
 
@@ -107,6 +98,8 @@ function foldersToElements($atts)
 
    return $elements;
 }
+
+wp_add_inline_style('hover-animation', '.hover-animation:hover{scale:0.9;}');
 
 wp_add_inline_style('wp-block-columns', '.wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}');
 
