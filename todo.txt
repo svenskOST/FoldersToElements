@@ -10,6 +10,13 @@ KLART Fixa så att det är max 3 per rad i kolumngrejerna.
 
 KLART Fixa wordpress inline CSS för columns blocket utan att lägga till blocket i editorn.
 
+- Konsekvent storlek för elementens icon.
+
+- Centrera text om det bara är en rad?
+
+- Border/bakgrund för varje element för lättare enhetligt gränssnitt? Hover animation? Cards? 
+  Lägga till CSS för detta i PHP skriptet som jag gjorde med wp-block-columns.
+
 - Fixa lite med spacing mellan kolumner.
 
 - elevsidor.kreativlink.se sidan borde vara den som nu är kreativlink.se/home/elevsidor.
