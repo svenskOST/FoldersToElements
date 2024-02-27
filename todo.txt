@@ -4,12 +4,14 @@ KLART Fixa parametrar för pluginet för att ändra program och årskurs.
 
 KLART "altLink" parameter som när tom inte gör något men när fylld overwritear $link (för projekt som länkar till annat än en webbsida i domänen).
 
-- Fixa lite med spacing mellan kolumner.
+KLART Fixa base för mina react projekt.
 
-- Fixa så att det är max 3 per rad i kolumngrejerna.
+KLART Fixa så att det är max 3 per rad i kolumngrejerna.
+
+KLART Fixa wordpress inline CSS för columns blocket utan att lägga till blocket i editorn.
+
+- Fixa lite med spacing mellan kolumner.
 
 - elevsidor.kreativlink.se sidan borde vara den som nu är kreativlink.se/home/elevsidor.
 
 - Anpassa bättre för prova-på.
-
-- Fixa base för mina react projekt.
