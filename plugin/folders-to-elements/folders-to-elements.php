@@ -26,12 +26,19 @@ function foldersToElements($atts)
    $elements = "";
 
    if (isset($program)) {
-      // Base to find folders relative to this plugin.
-      $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
-      $folders = array_filter(glob("$scriptRelativeBase/*", GLOB_ONLYDIR), 'is_dir');
-
       // Base for URLs relative to the page document.
       $pageRelativeBase = "../$program";
+      
+      if (isset($year)) {
+         // Base to find folders relative to this plugin.
+         $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
+         $yearDynamicPath = "$pageRelativeBase/arskurs-$year";
+      } else {
+         $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program";
+         $yearDynamicPath = "$pageRelativeBase";
+      }
+
+      $folders = array_filter(glob("$scriptRelativeBase/*", GLOB_ONLYDIR), 'is_dir');
 
       $counter = 0;
 
@@ -57,11 +64,11 @@ function foldersToElements($atts)
          if ($data['altLink'] != null) {
             $link = $data['altLink'];
          } else {
-            $link = "$pageRelativeBase/arskurs-$year/$folderName";
+            $link = "$yearDynamicPath/$folderName";
          }
 
          if (file_exists("$folder/icon.png")) {
-            $icon = "$pageRelativeBase/arskurs-$year/$folderName/icon.png";
+            $icon = "$yearDynamicPath/$folderName/icon.png";
          } else {
             $icon = "$pageRelativeBase/standard-icon.png";
          }
