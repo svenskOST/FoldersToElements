@@ -13,7 +13,7 @@ function add_plugin_css()
 {
    $css_url = plugins_url('project-cards.css', __FILE__);
 
-   wp_enqueue_style('project-cards', $css_url);
+   wp_enqueue_style('project-cards', $css_url, array(), null);
 }
 
 add_action('wp_enqueue_scripts', 'add_plugin_css');
@@ -68,7 +68,7 @@ function folders_to_elements($atts)
             $icon = "$page_relative_base/standard-icon.png";
          }
 
-         $elements .= "";
+         $elements .= "<div class='projectCard'></div>";
       }
 
       $elements .= "</div>";
