@@ -13,7 +13,7 @@ function add_plugin_css()
 {
    $css_url = plugins_url('project-cards.css', __FILE__);
 
-   wp_enqueue_style('plugin-style', $css_url);
+   wp_enqueue_style('project-cards', $css_url);
 }
 
 add_action('wp_enqueue_scripts', 'add_plugin_css');
