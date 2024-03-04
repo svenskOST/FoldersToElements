@@ -9,7 +9,16 @@ Author: Alexander Marini
 // Uncomment line below for testing in a different environment.
 // header('Access-Control-Allow-Origin: *');
 
-function foldersToElements($atts)
+function add_plugin_css()
+{
+   $css_url = plugins_url('project-cards.css', __FILE__);
+
+   wp_enqueue_style('plugin-style', $css_url);
+}
+
+add_action('wp_enqueue_scripts', 'add_plugin_css');
+
+function folders_to_elements($atts)
 {
    $atts = shortcode_atts(
       array(
@@ -17,44 +26,30 @@ function foldersToElements($atts)
          'year' => null
       ),
       $atts,
-      'foldersToElements'
+      'folders_to_elements'
    );
 
    $program = $atts['program'];
    $year = $atts['year'];
 
-   $elements = "";
-
    if (isset($program)) {
+      $elements = "<div class='projectCardsContainer'>";
+
       // Base for URLs relative to the page document.
-      $pageRelativeBase = "../$program";
-      
+      $page_relative_base = "../$program";
+
       if (isset($year)) {
-         // Base to find folders relative to this plugin.
-         $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
-         $yearDynamicPath = "$pageRelativeBase/arskurs-$year";
+         $script_relative_base = plugin_dir_path(__FILE__) . "../../../$program/arskurs-$year";
+         $year_dynamic_path = "$page_relative_base/arskurs-$year";
       } else {
-         $scriptRelativeBase = plugin_dir_path(__FILE__) . "../../../$program";
-         $yearDynamicPath = "$pageRelativeBase";
+         $script_relative_base = plugin_dir_path(__FILE__) . "../../../$program";
+         $year_dynamic_path = "$page_relative_base";
       }
 
-      $folders = array_filter(glob("$scriptRelativeBase/*", GLOB_ONLYDIR), 'is_dir');
-
-      $counter = 0;
+      $folders = array_filter(glob("$script_relative_base/*", GLOB_ONLYDIR), 'is_dir');
 
       foreach ($folders as $folder) {
-         $counter++;
-
-         if ($counter % 3 == 1) {
-            if ($counter != 1) {
-               $elements .= "</div>";
-            }
-            $elements .= "<div class='wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex' style='margin: 5vh 5vw 0 5vw'>";
-         }
-
-         $folderName = basename($folder);
-         $link = null;
-         $icon = null;
+         $folder_name = basename($folder);
 
          $data = json_decode(file_get_contents("$folder/settings.json"), true);
          $author = $data['author'];
@@ -64,43 +59,24 @@ function foldersToElements($atts)
          if ($data['altLink'] != null) {
             $link = $data['altLink'];
          } else {
-            $link = "$yearDynamicPath/$folderName";
+            $link = "$year_dynamic_path/$folder_name";
          }
 
          if (file_exists("$folder/icon.png")) {
-            $icon = "$yearDynamicPath/$folderName/icon.png";
+            $icon = "$year_dynamic_path/$folder_name/icon.png";
          } else {
-            $icon = "$pageRelativeBase/standard-icon.png";
+            $icon = "$page_relative_base/standard-icon.png";
          }
 
-         $elements .= "
-            <a href='$link' target='_blank' class='hover-animation wp-block-column is-layout-flow wp-block-column-is-layout-flow' style='background-color: rgba(0, 0, 0, 0.5); border-radius: 30px; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 50px 20px; margin: 2vh 1vw; text-decoration: none; transition: scale 0.3s'>
-               <figure class='wp-block-image aligncenter size-full is-resized is-style-rounded' style='aspect-ratio: 1/1'>
-                  <img src='$icon' class='wp-image-82' style='width: 275px; height: auto'/>
-               </figure>
-               <h3 class='wp-block-heading has-text-align-center'>
-                  $title
-               </h3>
-               <h4 class='wp-block-heading has-text-align-center' style='margin-top: 5px;'>
-                  $author
-               </h4>
-               <p>
-                  $description
-               </p>
-            </a>
-         ";
+         $elements .= "";
       }
 
       $elements .= "</div>";
    } else {
-      $elements .= "<h4 style='text-align: center; margin-top: 40px'>Ingenting att visa här ännu...</h4>";
+      $elements = "<h4 class='emptyContent'>Ingenting att visa här ännu...</h4>";
    }
 
    return $elements;
 }
 
-wp_add_inline_style('hover-animation', '.hover-animation:hover{scale:0.9;}');
-
-wp_add_inline_style('wp-block-columns', '.wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}');
-
-add_shortcode('foldersToElements', 'foldersToElements');
+add_shortcode('folders_to_elements', 'folders_to_elements');
