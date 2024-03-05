@@ -9,7 +9,8 @@ Author: Alexander Marini
 // Uncomment line below for testing in a different environment.
 // header('Access-Control-Allow-Origin: *');
 
-function add_plugin_js() {
+function add_plugin_js()
+{
    $js_url = plugins_url('blur-effect.js', __FILE__);
 
    $js_file_path = plugin_dir_path(__FILE__) . 'blur-effect.js';
@@ -88,7 +89,7 @@ function folders_to_elements($atts)
 
          $elements .= "
             <a class='projectCard' href='$link' target='_blank'>
-               <img class='cardIcon' src='$icon'/>
+               <div class='cardIcon' style='background: center / contain no-repeat url($icon)'></div>
                <div class='cardText'>
                   <h3>$title</h3>
                   <h4>$author</h4>

@@ -23,6 +23,7 @@
 
 .cardIcon {
    width: 100%;
+   height: 40%;
 }
 
 @media only screen and (min-width: 900px) {
