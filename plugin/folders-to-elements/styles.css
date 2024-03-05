@@ -18,20 +18,7 @@
    padding: 50px 20px;
    margin: 30px 3vw;
    text-decoration: none;
-   transition: transform 0.4s, filter 0.4s;
-}
-
-.projectCard:active {
-   transform: scale(0.95, 0.95);
-}
-
-.projectCard.focus {
-   transform: scale(1.1, 1.1);
-}
-
-.projectCard.blur {
-   filter: blur(4px);
-   transform: scale(0.9, 0.9);
+   box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .cardIcon {
@@ -42,8 +29,23 @@
    .projectCardsContainer {
       max-width: 90%;
    }
+}
 
+@media (pointer: fine) {
    .projectCard {
-      box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s, filter 0.4s;
+   }
+
+   .projectCard:active {
+      transform: scale(0.95, 0.95);
+   }
+
+   .projectCard.focus {
+      transform: scale(1.1, 1.1);
+   }
+
+   .projectCard.blur {
+      filter: blur(4px);
+      transform: scale(0.9, 0.9);
    }
 }
