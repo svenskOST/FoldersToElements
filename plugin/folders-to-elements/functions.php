@@ -73,7 +73,15 @@ function folders_to_elements($atts)
             $icon = "$page_relative_base/standard-icon.png";
          }
 
-         $elements .= "<a class='projectCard' href='$link' target='_blank'></a>";
+         $elements .= "
+            <a class='projectCard' href='$link' target='_blank'>
+               <img class='cardIcon' src='$icon'/>
+               <div class='cardText'>
+                  <h4>$author</h4>
+                  <p>$description</p>
+               </div>
+            </a>
+         ";
       }
 
       $elements .= "</div>";
