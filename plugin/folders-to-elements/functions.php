@@ -9,6 +9,19 @@ Author: Alexander Marini
 // Uncomment line below for testing in a different environment.
 // header('Access-Control-Allow-Origin: *');
 
+function add_plugin_js() {
+   $js_url = plugins_url('blur-effect.js', __FILE__);
+
+   $js_file_path = plugin_dir_path(__FILE__) . 'blur-effect.js';
+   $js_version = filemtime($js_file_path);
+
+   $js_url = add_query_arg('ver', $js_version, $js_url);
+
+   wp_enqueue_script('blur-effect', $js_url, array(), $js_version);
+}
+
+add_action('wp_enqueue_scripts', 'add_plugin_js');
+
 function add_plugin_css()
 {
    $css_url = plugins_url('styles.css', __FILE__);
@@ -77,6 +90,7 @@ function folders_to_elements($atts)
             <a class='projectCard' href='$link' target='_blank'>
                <img class='cardIcon' src='$icon'/>
                <div class='cardText'>
+                  <h3>$title</h3>
                   <h4>$author</h4>
                   <p>$description</p>
                </div>

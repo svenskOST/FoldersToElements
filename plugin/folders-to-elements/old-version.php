@@ -102,3 +102,55 @@ function foldersToElements($atts)
 wp_add_inline_style('wp-block-columns', '.wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}');
 
 add_shortcode('foldersToElements', 'foldersToElements');
+
+.projectCardsContainer {
+   max-width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+.projectCard {
+   width: 300px;
+   height: 400px;
+   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 50px 20px;
+   margin: 30px 3vw;
+   text-decoration: none;
+}
+
+.cardIcon {
+   width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+   .projectCardsContainer {
+      max-width: 90%;
+   }
+}
+
+@media (pointer: fine) {
+   .projectCard {
+      transition: transform 0.4s, filter 0.4s;
+      box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.3);
+   }
+
+   .projectCard:hover {
+      transform: scale(1.1, 1.1);
+   }
+
+   .projectCard:active {
+      transform: scale(0.95, 0.95);
+   }
+
+   .projectCard:hover ~ .projectCard {
+      filter: blur(4px);
+      transform: scale(0.9, 0.9);
+   }
+}
