@@ -91,8 +91,8 @@ function folders_to_elements($atts)
             <a class='projectCard' href='$link' target='_blank'>
                <div class='cardIcon' style='background: center / contain no-repeat url($icon)'></div>
                <div class='cardText'>
-                  <h3>$title</h3>
-                  <h4>$author</h4>
+                  <h3 class='title'>$title</h3>
+                  <h4 class='author'>$author</h4>
                   <p>$description</p>
                </div>
             </a>
