@@ -1,5 +1,6 @@
 .projectCardsContainer {
    max-width: 100%;
+   padding-top: 30px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -34,6 +35,10 @@
 .author {
    text-align: center;
    margin-top: 0;
+}
+
+.emptyContent {
+   padding-top: 40px;
 }
 
 @media only screen and (min-width: 900px) {
