@@ -1,0 +1,27 @@
+.projectCardsContainer {
+   width: 100%;
+   outline: 2px dashed red;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.projectCard {
+   width: 400px;
+   height: 500px;
+   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 50px 20px;
+   margin: 2vh 1vw;
+   text-decoration: none;
+}
+
+.emptyContent {
+   text-align: center;
+   margin-top: 40px;
+}

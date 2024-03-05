@@ -11,9 +11,14 @@ Author: Alexander Marini
 
 function add_plugin_css()
 {
-   $css_url = plugins_url('project-cards.css', __FILE__);
+   $css_url = plugins_url('styles.css', __FILE__);
 
-   wp_enqueue_style('project-cards', $css_url, array(), null);
+   $css_file_path = plugin_dir_path(__FILE__) . 'styles.css';
+   $css_version = filemtime($css_file_path);
+
+   $css_url = add_query_arg('ver', $css_version, $css_url);
+
+   wp_enqueue_style('project-cards', $css_url, array(), $css_version);
 }
 
 add_action('wp_enqueue_scripts', 'add_plugin_css');
@@ -68,7 +73,7 @@ function folders_to_elements($atts)
             $icon = "$page_relative_base/standard-icon.png";
          }
 
-         $elements .= "<div class='projectCard'></div>";
+         $elements .= "<a class='projectCard' href='$link' target='_blank'></a>";
       }
 
       $elements .= "</div>";
