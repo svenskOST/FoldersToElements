@@ -8,21 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
          card.addEventListener('mouseenter', () => {
             card.classList.add('focus')
 
+            /*
             Array.from(cards).forEach(otherCard => {
                if (otherCard !== card) {
                   otherCard.classList.add('blur')
                }
             })
+            */
          })
 
          card.addEventListener('mouseleave', () => {
             card.classList.remove('focus')
 
+            /*
             Array.from(cards).forEach(otherCard => {
                if (otherCard !== card) {
                   otherCard.classList.remove('blur')
                }
             })
+            */
          })
       })
    })

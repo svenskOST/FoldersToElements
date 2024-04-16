@@ -56,8 +56,10 @@
       transform: scale(1.1, 1.1);
    }
 
+   /*
    .projectCard.blur {
       filter: blur(4px);
       transform: scale(0.9, 0.9);
    }
+   */
 }
